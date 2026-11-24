@@ -37,7 +37,7 @@ Replace each placeholder with a chosen instruction and remove unused lines. Keep
 | Group | Observable keys |
 | --- | --- |
 | Idle | Planted feet, slight upper-body and clothing changes across four frames |
-| Run | Alternating near/far leg contact, compression, flight, then opposite leg contact, compression, flight |
+| Run | Two steps with alternating support legs and readable contact, loading, push-off, and swing phases |
 | Jump and fall | Rise with knees lifting, apex with a compact pose, descent with a changed limb and cloth direction |
 | Land | Deep knee compression at contact, then standing recovery |
 | Roll | Load, tuck, turn, recover |
@@ -47,6 +47,13 @@ Replace each placeholder with a chosen instruction and remove unused lines. Keep
 | Weapon transition | Hand reaches the stored weapon, then moves out along the extraction direction. Reverse those poses for return where the silhouette and timing fit. |
 
 Inspect the anchor during generation and inspect the finished sprite against adjacent frames after normalization. Correct rendering quality or cell count with a narrow retry. If consecutive attack poses have different edge spacing, calculate independent crop boxes and use the common body anchor to assemble the timeline.
+
+### Run-cycle checks
+
+- Name the two legs consistently in every pose description. In a fixed side view, near and far can identify the same two limbs across the loop. Front, rear, support, and swing describe roles that change. Track each hip, knee, ankle, and boot through consecutive frames. Keep identifying details such as trouser shading and boot trim attached to the same limb. Mark the legs on a review image if they are hard to follow when they overlap.
+- Check both landings on the composited preview against its ground line. A flight frame can have clear space under both boots. At contact, confirm that the incoming boot reaches the line and the outgoing leg continues smoothly into knee flexion and recovery. During loading, the same incoming leg bears weight as the hips move over it. Repeat the check with the roles reversed. Judge contact from the boot and ground pixels, then check the frame label and effect timing against what you saw.
+- Watch for a swing knee that rises abruptly and stays high until the boot jumps to the ground. Also check for a wide airborne stride followed by a landing where the visible leg identity suddenly swaps. Use adjacent poses to check that the outgoing foot pulls up behind the body and the incoming foot travels through to its landing. Add or redraw an in-between when the path is unclear. Choose the frame count and amount of knee lift to suit the intended gait.
+- Step through both handoffs and across the last-to-first frame with effects off. Then loop at normal and reduced speed and verify that any dust starts at the observed contact. If a targeted redraw keeps swapping limbs, reuse the same limb art with separate joint poses and export the assembled frames.
 
 ## Postprocessing and inspection
 
