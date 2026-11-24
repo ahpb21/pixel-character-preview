@@ -1,0 +1,4 @@
+interface:
+  display_name: "像素角色动作与离线预览"
+  short_description: "用一句话生成像素角色动作计划，并制作精灵图、Piskel 工程与离线特效预览"
+  default_prompt: "使用 $pixel-character-preview 制作一套披橙色围巾的像素短剑角色完整动作，并输出可直接打开的离线预览。"

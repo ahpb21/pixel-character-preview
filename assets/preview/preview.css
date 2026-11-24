@@ -1,0 +1,42 @@
+:root {
+  color-scheme: dark;
+  font-family: "Microsoft YaHei UI", "PingFang SC", system-ui, sans-serif;
+  color: #f2eee5;
+  background: #191a17;
+  --edge: #3a3c34;
+  --muted: #b6b6aa;
+  --accent: #ecce91;
+}
+* { box-sizing: border-box; }
+body { margin: 0; }
+main { width: min(1120px, calc(100% - 40px)); margin: 45px auto; }
+h1 { font-size: clamp(25px, 4vw, 39px); margin: 0 0 18px; }
+.workspace { display: grid; grid-template-columns: minmax(0, 1fr) 260px; border: 1px solid var(--edge); }
+.stage { display: grid; place-items: center; min-width: 0; background: #282a24; }
+canvas { display: block; width: 100%; height: auto; image-rendering: pixelated; }
+.controls { padding: 18px; background: #1e201b; border-left: 1px solid var(--edge); }
+button, select { font: inherit; border: 1px solid var(--edge); background: #242620; color: inherit; cursor: pointer; }
+button { padding: 8px; }
+button:disabled { opacity: .48; cursor: default; }
+button[aria-pressed=true] { border-color: #a89164; background: #373123; color: #fae0ac; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+#clips, .playback, .stepper { display: grid; gap: 6px; margin-bottom: 13px; }
+#clips { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+#clips button { text-align: left; font-size: 13px; }
+.playback { grid-template-columns: 1fr 64px; }
+.primary { background: var(--accent); color: #262115; font-weight: 700; }
+.stepper { grid-template-columns: 34px 1fr 34px; align-items: center; text-align: center; }
+.stepper strong { font-size: 13px; display: block; }
+.stepper small, .grip { color: var(--muted); font: 12px/1.4 ui-monospace, monospace; }
+.grip { margin: 4px 0 12px; }
+.grip:empty { display: none; }
+.options, footer { display: flex; flex-wrap: wrap; gap: 8px 14px; font-size: 13px; }
+.options label { display: flex; align-items: center; gap: 5px; }
+.options input { accent-color: var(--accent); margin: 0; }
+footer { margin-top: 14px; }
+footer a { color: var(--accent); text-underline-offset: 3px; }
+@media (max-width: 700px) {
+  main { width: calc(100% - 26px); margin: 22px auto; }
+  .workspace { grid-template-columns: 1fr; }
+  .controls { border-left: 0; border-top: 1px solid var(--edge); }
+}
