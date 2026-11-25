@@ -10,6 +10,7 @@ Carry a single user brief through visual generation, sprite preparation, playbac
 ## Read before working
 
 - Read [Art direction and prompt rules](references/art-direction.md) before writing any image prompt. Its rules apply to retries and user-facing claims.
+- For a requested head-to-body ratio or deliberately exaggerated anatomy, use the [proportion and anchor checks](references/art-direction.md#proportion-and-anchor-checks) before generating motion batches.
 - Read [Build contract](references/build-contract.md) before preparing the manifest or modifying the preview template. Paths are relative to the skill folder.
 - Use the available image generator for new raster art. Retain user-provided references and generated outputs. When generation capability is unavailable, work from supplied art if available and report which assets are still needed.
 
@@ -24,7 +25,7 @@ Respect supplied character references, art style, resolution, weapons, and actio
 
 ## Execute the workflow
 
-1. **Lock the anchor.** Inspect a supplied anchor or generate one neutral profile pose. Record the visible identity traits and the intended pixel scale. Use that exact anchor in every pose batch.
+1. **Lock the anchor.** Inspect or generate one neutral profile pose. If redesigning the proportions, use existing art for identity and use the checked redesign as the scale reference. Check the final-size anchor and record its measured landmarks before using that exact art in every pose batch.
 2. **Generate in batches.** Give each image a single job and each pose a single chronological slot. Generate body poses, weapon art, and sheath art as separate inputs when applicable. Keep original images and exact prompts in the project source directory.
 3. **Inspect each image.** Count the actual poses, check identity, orientation, hands, feet, overlap, cut lines, and background. Repair specific defects with targeted retries or pixel cleanup. Label the remaining result according to its actual state.
 4. **Prepare the atlas and manifest.** Choose real crop rectangles and a consistent scale for related poses. Align ground-contact poses while preserving intended movement. Map grip points and sheath mouths against the final frames. Use the builder to key suitable backgrounds and normalize PNGs. For ambiguous color keys, use an alpha mask or pixel editor first.
