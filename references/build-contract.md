@@ -14,7 +14,7 @@ Use absolute paths for the script when it is outside the project directory. Sour
 | --- | --- |
 | `character` | Character name used in the viewer |
 | `language` | `zh` or `en` for preview controls, default `en` |
-| `frameSize` | Final square frame size, default 48 |
+| `frameSize` | Final square frame size. Write `96` for the Skill's default for new characters, or use the requested size. The standalone builder uses `48` when the field is omitted. |
 | `groundY` | Zero-based row of the contact pixel, defaults to the scaled 48-frame baseline of 42 |
 | `piskelFps` | Editable project preview rate, default 12. Runtime timing comes from each frame's `holdMs`. |
 | `columns` | Requested atlas columns. The builder may wrap to keep each strip within roughly 2048 pixels. |
@@ -61,14 +61,14 @@ These coordinates, filenames, and times illustrate the format. Replace them with
 {
   "character": "Example character",
   "language": "en",
-  "frameSize": 48,
+  "frameSize": 96,
   "poses": [
     { "id": "idle", "source": "art/idle.png" },
     { "id": "cut", "source": "art/attack.png", "crop": [512, 0, 512, 512],
       "background": { "color": "#808080", "tolerance": 9 },
-      "scale": 0.09, "grip": [38, 14] }
+      "scale": 0.16, "grip": [76, 28] }
   ],
-  "equipment": { "weapon": { "source": "art/blade.png", "pivot": [4, 3] } },
+  "equipment": { "weapon": { "source": "art/blade.png", "pivot": [8, 6] } },
   "clips": [
     { "id": "idle", "name": "Idle", "loop": true, "frames": [{ "id": "idle", "holdMs": 200 }] },
     { "id": "attack", "name": "Attack",
@@ -77,7 +77,7 @@ These coordinates, filenames, and times illustrate the format. Replace them with
         { "id": "cut", "holdMs": 100, "weaponState": "drawn", "angle": -12 },
         { "id": "idle", "holdMs": 160 }
       ],
-      "effects": [{ "kind": "slash", "atMs": 120, "point": [24, 40], "options": { "radius": 32 } }]
+      "effects": [{ "kind": "slash", "atMs": 120, "point": [48, 80], "options": { "radius": 32 } }]
     }
   ]
 }

@@ -16,9 +16,11 @@ Carry a single user brief through visual generation, sprite preparation, playbac
 
 ## Interpret one brief
 
-Respect supplied character references, art style, resolution, weapons, and action list. When the user asks for the complete action set and leaves routine choices open, use the following baseline. An explicit action list supersedes this baseline.
+Respect supplied character references, art style, resolution, weapons, and action list. For new character generation, default to native `96 × 96` sprite frames and honor any explicit frame size in the brief. Design pixel detail for the target grid from the first anchor through the action sheets. Upscaling smaller sprites preserves their original level of detail. Set `frameSize` explicitly in the generated manifest.
 
-- Choose a clear side-view silhouette and an original recognizable costume. Right-facing is the default. Use `48 × 48` for coarse pixel art. Use `96 × 96` or the requested size when the brief calls for finer native art. Work in the intended pixel style from the first reference.
+When the user asks for the complete action set and leaves routine choices open, use the following baseline. An explicit action list supersedes this baseline.
+
+- Choose a clear side-view silhouette and an original recognizable costume. Right-facing is the default.
 - Use a compact movement set of idle 4, run 6, rise/apex/fall 3, landing 2, roll 4, dash 4, and hit recoil 1. Provide a complete jump playback and individual fall and landing views. Reuse the idle pose for recovery where it fits.
 - Use one action with three clear keys and a five-hit chain with five distinct attacks. Reuse the first attack's body poses where the two timelines share them. Choose mechanics and effects suited to the character. Visible weapons, scabbards, and sheathing transitions apply when the brief or design supports them.
 - Choose editable output names and a new project folder in the requested workspace. Select the preview language from the interaction. Ask only when a missing reference or a major choice actually blocks the work.
